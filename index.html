@@ -1,0 +1,44 @@
+<?php
+
+$daily_activities = [
+    0 => [
+        'message' => 'Chris lied. You lose 10 endurance. ',
+        'value' => 10
+    ],
+    1 => [
+        'message' => 'Brennen made another false promise. You lose 5 endurance. ',
+        'value' => 5
+    ], 
+    2 => [
+        'message' => 'Michael is bullshitting you again. You lose 2 endurance. ',
+        'value' => 2
+    ], 
+    3 => [
+        'message' => 'An employee left. You lose 20 endurance. ',
+        'value' => 20
+    ], 
+    4 => [
+        'message' => 'Nothing bad happened today! ',
+        'value' => 0
+    ], 
+];
+
+$days = 0;
+$endurance = 10000;
+
+while ($endurance > 0) {
+    $days++;
+    for ($hours = 8; $hours > 0; $hours--) {
+        $activity = rand(0, sizeof($daily_activities)-1);
+        echo $daily_activities[$activity]['message'];
+        echo "\n";
+        $endurance -= $daily_activities[$activity]['value'];
+    }
+}
+
+echo 'Fuck this shit. You quit. ';
+echo "\n";
+echo 'GAME OVER: You lasted '. $days . ' days. '
+
+
+?>
